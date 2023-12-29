@@ -9,7 +9,7 @@ if [[ ! -e $outputDir ]]; then
     mkdir $outputDir
 fi
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home
+export JAVA_HOME=/usr/local/opt/openjdk/libexec/openjdk.jdk/Contents/Home
 test_name="Local_benchmark"
 cd ..
 mvn clean install -DskipTests

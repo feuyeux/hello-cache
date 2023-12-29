@@ -1,6 +1,6 @@
 mkdir data
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home
+export JAVA_HOME=/usr/local/opt/openjdk/libexec/openjdk.jdk/Contents/Home
 test_name="Jvm_benchmark_JDK17_ZGC"
 sh ../build.sh
 echo "Start BenchMark: $test_name"

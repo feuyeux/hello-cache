@@ -1,7 +1,7 @@
 https://github.com/cache2k/cache2k-benchmark.git
 
 ```sh
-$ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home
+$ export JAVA_HOME=/usr/local/opt/openjdk/libexec/openjdk.jdk/Contents/Home
 $ mvn -DskipTests clean install
 $ bash jmh-jvm-benchmark.sh --diligent --dry complete
 
