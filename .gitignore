@@ -27,3 +27,4 @@ target
 .DS_Store
 *.json
 data/
+dependency-reduced-pom.xml

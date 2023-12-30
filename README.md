@@ -7,10 +7,22 @@
 | Local Disk             | [LmdbJava](https://github.com/lmdbjava/lmdbjava)/[Chroncile Map](https://github.com/OpenHFT/Chronicle-Map)                |
 | Remote Client          | lettuce redisson jedis                                                                                                    |
 
-Unable to make field long java.nio.Buffer.address accessible: module java.base does not "opens
-java.nio" - LMDB using
-Java API
+## Benchmark
+
+### Run Benchmark
 
 ```sh
---add-opens=java.base/java.nio=ALL-UNNAMED
+$ sh sh/jvm-benchmark.sh
+$ head data/Jvm_benchmark_ZGC.out
+$ head data/Jvm_benchmark_ZGC.json
 ```
+
+```sh
+sh sh/remote-benchmark.sh 
+
+```
+
+
+### JMH Chars
+
+- https://jmh.morethan.io/

@@ -1,84 +1,156 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.feuyeux.hello.cache</groupId>
-  <artifactId>hello-cache</artifactId>
-  <packaging>pom</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <modules>
-    <module>cache-on-heap</module>
-    <module>cache-off-heap</module>
-    <module>cache-remote</module>
-    <module>cache-disk</module>
-    <module>cache-benchmark</module>
-    <module>cache-app</module>
-    <module>cache-core</module>
-  </modules>
-  <name>hello-cache</name>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-    <springboot.version>3.2.1</springboot.version>
-    <!--  remote -->
-    <redisson.version>3.16.8</redisson.version>
-    <jedis.version>4.2.3</jedis.version>
-    <lettuce.version>6.1.6.RELEASE</lettuce.version>
-    <!-- local jvm -->
-    <cache2k.version>2.6.1.Final</cache2k.version>
-    <caffeine2.version>2.9.3</caffeine2.version>
-    <caffeine3.version>3.1.1</caffeine3.version>
-    <guava.version>31.1-jre</guava.version>
-    <!-- local off heap -->
-    <ohc.version>0.7.4</ohc.version>
-    <lmdb.version>0.8.2</lmdb.version>
-    <picocli.version>4.6.3</picocli.version>
+    <groupId>org.feuyeux.cache</groupId>
+    <artifactId>hello-cache</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
-    <junit.version>5.8.2</junit.version>
-    <lombok.version>1.18.30</lombok.version>
+    <modules>
+        <module>hello-cache-on-heap</module>
+        <module>hello-cache-off-heap</module>
+        <module>hello-cache-disk</module>
+        <module>hello-cache-redis</module>
+        <module>hello-cache-app</module>
+    </modules>
 
-    <jmh.version>1.35</jmh.version>
-    <byte-buddy.version>1.14.11</byte-buddy.version>
-    <javax.annotation-api.version>1.3.2</javax.annotation-api.version>
-  </properties>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.11.0</version>
-        <configuration>
-          <source>21</source>
-          <target>21</target>
-          <compilerArgs>
-            <arg>--add-exports=java.base/jdk.internal=ALL-UNNAMED</arg>
-          </compilerArgs>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <version>${springboot.version}</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.22.0</version>
-      </plugin>
-    </plugins>
-  </build>
-  <dependencies>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter</artifactId>
-      <version>${springboot.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>${lombok.version}</version>
-      <scope>provided</scope>
-    </dependency>
-  </dependencies>
+    <properties>
+        <!-- local on heap -->
+        <!-- https://mvnrepository.com/artifact/org.cache2k/cache2k-core -->
+        <cache2k.version>2.6.1.Final</cache2k.version>
+        <!-- https://mvnrepository.com/artifact/com.github.ben-manes.caffeine/caffeine -->
+        <caffeine2.version>2.9.3</caffeine2.version>
+        <caffeine3.version>3.1.8</caffeine3.version>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <guava.version>33.0.0-jre</guava.version>
+        <!-- local off heap -->
+        <!-- https://mvnrepository.com/artifact/org.caffinitas.ohc/ohc-core -->
+        <ohc.version>0.7.4</ohc.version>
+        <!-- local disk -->
+        <!-- https://mvnrepository.com/artifact/org.lmdbjava/lmdbjava -->
+        <lmdb.version>0.9.0</lmdb.version>
+        <!-- https://mvnrepository.com/artifact/org.agrona/agrona -->
+        <agrona.version>1.20.0</agrona.version>
+        <!-- https://mvnrepository.com/artifact/net.openhft/chronicle-map -->
+        <chronicle-map.version>3.25ea3</chronicle-map.version>
+        <!-- https://mvnrepository.com/artifact/org.rocksdb/rocksdbjni -->
+        <rocksdb.version>8.9.1</rocksdb.version>
+        <!--  remote -->
+        <!-- https://mvnrepository.com/artifact/org.redisson/redisson -->
+        <redisson.version>3.25.2</redisson.version>
+        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <jedis.version>5.1.0</jedis.version>
+        <!-- https://mvnrepository.com/artifact/io.lettuce/lettuce-core -->
+        <lettuce.version>6.3.0.RELEASE</lettuce.version>
+        <!-- serialize -->
+        <!-- https://mvnrepository.com/artifact/com.esotericsoftware/kryo -->
+        <kryo.version>5.5.0</kryo.version>
+        <!-- https://mvnrepository.com/artifact/com.esotericsoftware/kryo-shaded -->
+        <kryo-shaded.version>4.0.3</kryo-shaded.version>
+        <!-- https://mvnrepository.com/artifact/de.javakaffee/kryo-serializers -->
+        <kryo-serializers.version>0.45</kryo-serializers.version>
+
+        <!--  -->
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
+        <junit.version>5.10.1</junit.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+        <log4j-slf4j.version>2.22.1</log4j-slf4j.version>
+        <lombok.version>1.18.30</lombok.version>
+        <!-- https://mvnrepository.com/artifact/org.openjdk.jmh/jmh-core -->
+        <jmh.version>1.37</jmh.version>
+        <!-- -->
+        <javax.annotation-api.version>1.3.2</javax.annotation-api.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--  plugins  -->
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
+        <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+        <maven-surefire-plugin.version>3.2.3</maven-surefire-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+        <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+        <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
+
+        <java.21.options>
+            --add-opens=java.base/java.io=ALL-UNNAMED
+            --add-opens=java.base/java.nio=ALL-UNNAMED
+            --add-opens=java.base/sun.nio.ch=ALL-UNNAMED
+            --add-opens=jdk.internal.jvmstat/sun.jvmstat.monitor=ALL-UNNAMED
+            --add-opens=java.base/jdk.internal.misc=ALL-UNNAMED
+            --add-opens=java.base/sun.reflect.generics.reflectiveObjects=ALL-UNNAMED
+            --add-opens=java.base/java.util=ALL-UNNAMED
+            --add-opens=java.base/java.lang=ALL-UNNAMED
+            --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+            --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+            --add-opens=java.base/java.time=ALL-UNNAMED
+            --add-opens=java.base/java.time.format=ALL-UNNAMED
+            --add-opens=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED
+            --add-opens=jdk.management/com.sun.management.internal=ALL-UNNAMED
+            --add-opens=java.management/com.sun.jmx.mbeanserver=ALL-UNNAMED
+        </java.21.options>
+    </properties>
+
+    <dependencies>
+        <!-- log4j2 via slf4j -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j-slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- junit5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <release>21</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-jar-plugin.version}</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Multi-Release>true</Multi-Release>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify.fmt</groupId>
+                <artifactId>fmt-maven-plugin</artifactId>
+                <version>2.21.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

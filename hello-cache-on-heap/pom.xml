@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.feuyeux.cache</groupId>
+    <artifactId>hello-cache</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>hello-cache-on-heap</artifactId>
+  <dependencies>
+  <!-- http://pixel.sankuai.com/artifact/org.cache2k/cache2k-core -->
+  <dependency>
+    <groupId>org.cache2k</groupId>
+    <artifactId>cache2k-core</artifactId>
+    <version>${cache2k.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>org.cache2k</groupId>
+    <artifactId>cache2k-micrometer</artifactId>
+    <version>${cache2k.version}</version>
+  </dependency>
+
+  <!-- https://mvnrepository.com/artifact/com.github.ben-manes.caffeine/caffeine -->
+  <!--Java 8 is supported by 2.x versions which will still be actively maintained.
+  Java 11 is required for 3.x in order to use VarHandles instead of requiring Unsafe.-->
+  <dependency>
+    <groupId>com.github.ben-manes.caffeine</groupId>
+    <artifactId>caffeine</artifactId>
+    <version>${caffeine3.version}</version>
+  </dependency>
+
+  <dependency>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava</artifactId>
+    <version>${guava.version}</version>
+    <exclusions>
+      <exclusion>
+        <artifactId>checker-qual</artifactId>
+        <groupId>org.checkerframework</groupId>
+      </exclusion>
+      <exclusion>
+        <artifactId>error_prone_annotations</artifactId>
+        <groupId>com.google.errorprone</groupId>
+      </exclusion>
+    </exclusions>
+  </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>${maven-source-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
