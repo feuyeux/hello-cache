@@ -6,6 +6,11 @@
 | Local Memory(Off Heap) | [OHC](https://github.com/snazy/ohc)                                                                                       |
 | Local Disk             | [LmdbJava](https://github.com/lmdbjava/lmdbjava)/[Chroncile Map](https://github.com/OpenHFT/Chronicle-Map)                |
 | Remote Client          | lettuce redisson jedis                                                                                                    |
+## Test
+
+```sh
+sh test.sh
+```
 
 ## Benchmark
 

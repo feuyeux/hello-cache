@@ -23,19 +23,21 @@ public class ChronicleMapCoon<K, V> {
     try {
       final File persistentFile = initPersistentPath(persistentPath);
       switch (valueClass.getSimpleName()) {
-        case "String" -> cache =
-            ChronicleMap.of(keyClass, valueClass)
-                .name("cache-map")
-                .entries(50)
-                .averageKeySize(100)
-                .averageValueSize(100)
-                .createPersistedTo(persistentFile);
-        case "Integer" -> cache =
-            ChronicleMap.of(keyClass, valueClass)
-                .name("cache-map")
-                .entries(50)
-                .averageKeySize(100)
-                .createPersistedTo(persistentFile);
+        case "String" ->
+            cache =
+                ChronicleMap.of(keyClass, valueClass)
+                    .name("cache-map")
+                    .entries(50)
+                    .averageKeySize(100)
+                    .averageValueSize(100)
+                    .createPersistedTo(persistentFile);
+        case "Integer" ->
+            cache =
+                ChronicleMap.of(keyClass, valueClass)
+                    .name("cache-map")
+                    .entries(50)
+                    .averageKeySize(100)
+                    .createPersistedTo(persistentFile);
       }
     } catch (IOException e) {
       log.error("ChronicleMap initializing error", e);

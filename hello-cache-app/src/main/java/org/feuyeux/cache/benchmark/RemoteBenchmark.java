@@ -33,8 +33,9 @@ import site.ycsb.generator.ScrambledZipfianGenerator;
 public class RemoteBenchmark {
 
   @Param({
-      /*"Redisson", */
-    "Lettuce", "Jedis"
+    /*"Redisson", */
+    "Lettuce",
+    "Jedis"
   })
   String type;
 
@@ -53,7 +54,7 @@ public class RemoteBenchmark {
   public void setup() throws Exception {
     values = new String[SIZE];
     switch (type) {
-        /*case "Redisson" -> cache = new RedissonCache();*/
+      /*case "Redisson" -> cache = new RedissonCache();*/
       case "Lettuce" -> cache = new LettuceCache();
       case "Jedis" -> cache = new JedisCache();
       default -> throw new AssertionError("Unknown type: " + type);
