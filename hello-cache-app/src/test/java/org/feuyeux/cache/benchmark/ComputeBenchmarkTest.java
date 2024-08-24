@@ -35,7 +35,9 @@ import site.ycsb.generator.ScrambledZipfianGenerator;
 @Threads(4)
 @Fork(1)
 @State(value = Scope.Benchmark)
-@OutputTimeUnit(TimeUnit.NANOSECONDS)
+@OutputTimeUnit(TimeUnit.SECONDS)
+
+//https://github.com/ben-manes/caffeine/blob/master/caffeine/src/jmh/java/com/github/benmanes/caffeine/cache/ComputeBenchmark.java
 public class ComputeBenchmarkTest {
 
   static final int SIZE = (2 << 14);
