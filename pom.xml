@@ -46,7 +46,7 @@
         <lettuce.version>6.4.0.RELEASE</lettuce.version>
         <!-- serialize -->
         <!-- https://mvnrepository.com/artifact/com.esotericsoftware/kryo -->
-        <kryo.version>5.5.0</kryo.version>
+        <kryo.version>5.6.1</kryo.version>
         <!-- https://mvnrepository.com/artifact/com.esotericsoftware/kryo-shaded -->
         <kryo-shaded.version>4.0.3</kryo-shaded.version>
         <!-- https://mvnrepository.com/artifact/de.javakaffee/kryo-serializers -->
