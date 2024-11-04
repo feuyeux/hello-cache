@@ -1,15 +1,7 @@
 package org.feuyeux.cache;
 
 import java.util.ArrayList;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.Phaser;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import lombok.extern.slf4j.Slf4j;
 import org.feuyeux.cache.task.CountDownLatchTask;
 import org.feuyeux.cache.task.CyclicBarrierTask;
@@ -130,5 +122,32 @@ public class ConcurrentTest {
     exec.shutdown();
     startGate.countDown();
     endGate.await();
+  }
+
+  @Test
+  public void testCompleteService() throws Exception {
+    int numTasks = 4;
+    ExecutorService executor = Executors.newFixedThreadPool(numTasks);
+    CompletionService<String> completionService = new ExecutorCompletionService<>(executor);
+
+    for (int i = 0; i < numTasks; i++) {
+      final int taskId = i;
+      completionService.submit(
+          () -> {
+            int sleepTime = (int) (Math.random() * 10);
+            TimeUnit.SECONDS.sleep(sleepTime);
+            log.info("Task " + taskId + " completed after " + sleepTime + " seconds");
+            return "TASK-" + taskId;
+          });
+    }
+    Future<String> completedTask = completionService.take();
+    log.info("First completed task: " + completedTask.get());
+    while (completionService.poll() != null) {
+      // Poll the remaining completed tasks
+      completedTask = completionService.poll();
+      completedTask.cancel(true);
+    }
+    // Shutdown the executor
+    executor.shutdown();
   }
 }
