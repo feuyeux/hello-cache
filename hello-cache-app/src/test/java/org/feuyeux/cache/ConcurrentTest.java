@@ -137,14 +137,14 @@ public class ConcurrentTest {
             int sleepTime = ThreadLocalRandom.current().nextInt(taskId, taskId * 10);
             try {
               TimeUnit.SECONDS.sleep(sleepTime);
-              log.info("Task " + taskId + " completed after " + sleepTime + " seconds");
+              log.info("TASK-" + taskId + " completed after " + sleepTime + " seconds");
               return "TASK-" + taskId;
             } catch (InterruptedException e) {
-              log.warn("Task " + taskId + " was interrupted");
+              log.warn("TASK-" + taskId + " was interrupted");
               return null;
             } finally {
               if (Thread.currentThread().isInterrupted()) {
-                log.warn("Task " + taskId + " was cancelled");
+                log.warn("TASK-" + taskId + " was cancelled");
               }
             }
           });
