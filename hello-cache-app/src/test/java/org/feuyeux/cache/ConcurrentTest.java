@@ -126,28 +126,34 @@ public class ConcurrentTest {
 
   @Test
   public void testCompleteService() throws Exception {
-    int numTasks = 4;
+    int numTasks = 10;
     ExecutorService executor = Executors.newFixedThreadPool(numTasks);
     CompletionService<String> completionService = new ExecutorCompletionService<>(executor);
 
-    for (int i = 0; i < numTasks; i++) {
+    for (int i = 1; i < numTasks; i++) {
       final int taskId = i;
       completionService.submit(
           () -> {
-            int sleepTime = (int) (Math.random() * 10);
-            TimeUnit.SECONDS.sleep(sleepTime);
-            log.info("Task " + taskId + " completed after " + sleepTime + " seconds");
-            return "TASK-" + taskId;
+            int sleepTime = ThreadLocalRandom.current().nextInt(taskId, taskId * 10);
+            try {
+              TimeUnit.SECONDS.sleep(sleepTime);
+              log.info("Task " + taskId + " completed after " + sleepTime + " seconds");
+              return "TASK-" + taskId;
+            } catch (InterruptedException e) {
+              log.warn("Task " + taskId + " was interrupted");
+              return null;
+            } finally {
+              if (Thread.currentThread().isInterrupted()) {
+                log.warn("Task " + taskId + " was cancelled");
+              }
+            }
           });
     }
     Future<String> completedTask = completionService.take();
     log.info("First completed task: " + completedTask.get());
-    while (completionService.poll() != null) {
-      // Poll the remaining completed tasks
-      completedTask = completionService.poll();
-      completedTask.cancel(true);
-    }
-    // Shutdown the executor
-    executor.shutdown();
+    executor.shutdownNow();
+
+    boolean awaited = executor.awaitTermination(10, TimeUnit.SECONDS);
+    log.info("Executor shutdown: " + awaited);
   }
 }
