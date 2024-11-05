@@ -57,7 +57,7 @@
         <junit.version>5.11.3</junit.version>
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
         <log4j-slf4j.version>2.24.1</log4j-slf4j.version>
-        <lombok.version>1.18.30</lombok.version>
+        <lombok.version>1.18.34</lombok.version>
         <!-- https://mvnrepository.com/artifact/org.openjdk.jmh/jmh-core -->
         <jmh.version>1.37</jmh.version>
         <!-- -->
