@@ -24,7 +24,7 @@
         <caffeine2.version>2.9.3</caffeine2.version>
         <caffeine3.version>3.2.0</caffeine3.version>
         <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
-        <guava.version>33.4.6-jre</guava.version>
+        <guava.version>33.4.7-jre</guava.version>
         <!-- local off heap -->
         <!-- https://mvnrepository.com/artifact/org.caffinitas.ohc/ohc-core -->
         <ohc.version>0.7.4</ohc.version>
