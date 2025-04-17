@@ -36,7 +36,7 @@
         <!-- https://mvnrepository.com/artifact/net.openhft/chronicle-map -->
         <chronicle-map.version>3.27ea0</chronicle-map.version>
         <!-- https://mvnrepository.com/artifact/org.rocksdb/rocksdbjni -->
-        <rocksdb.version>9.10.0</rocksdb.version>
+        <rocksdb.version>10.0.1</rocksdb.version>
         <!--  remote -->
         <!-- https://mvnrepository.com/artifact/org.redisson/redisson -->
         <redisson.version>3.45.1</redisson.version>
