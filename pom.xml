@@ -22,7 +22,7 @@
         <cache2k.version>2.6.1.Final</cache2k.version>
         <!-- https://mvnrepository.com/artifact/com.github.ben-manes.caffeine/caffeine -->
         <caffeine2.version>2.9.3</caffeine2.version>
-        <caffeine3.version>3.2.0</caffeine3.version>
+        <caffeine3.version>3.2.1</caffeine3.version>
         <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
         <guava.version>33.4.8-jre</guava.version>
         <!-- local off heap -->
