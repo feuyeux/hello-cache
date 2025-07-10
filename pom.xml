@@ -34,7 +34,7 @@
         <!-- https://mvnrepository.com/artifact/org.agrona/agrona -->
         <agrona.version>2.2.4</agrona.version>
         <!-- https://mvnrepository.com/artifact/net.openhft/chronicle-map -->
-        <chronicle-map.version>3.27ea0</chronicle-map.version>
+        <chronicle-map.version>3.27ea1</chronicle-map.version>
         <!-- https://mvnrepository.com/artifact/org.rocksdb/rocksdbjni -->
         <rocksdb.version>10.2.1</rocksdb.version>
         <!--  remote -->
