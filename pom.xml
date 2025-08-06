@@ -41,7 +41,7 @@
         <!-- https://mvnrepository.com/artifact/org.redisson/redisson -->
         <redisson.version>3.50.0</redisson.version>
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
-        <jedis.version>5.2.0</jedis.version>
+        <jedis.version>6.1.0</jedis.version>
         <!-- https://mvnrepository.com/artifact/io.lettuce/lettuce-core -->
         <lettuce.version>6.7.1.RELEASE</lettuce.version>
         <!-- serialize -->
