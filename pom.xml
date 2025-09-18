@@ -57,7 +57,7 @@
         <junit.version>5.13.4</junit.version>
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
         <log4j-slf4j.version>2.25.1</log4j-slf4j.version>
-        <lombok.version>1.18.40</lombok.version>
+        <lombok.version>1.18.42</lombok.version>
         <!-- https://mvnrepository.com/artifact/org.openjdk.jmh/jmh-core -->
         <jmh.version>1.37</jmh.version>
         <!-- -->
@@ -103,7 +103,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.40</version>
+            <version>1.18.42</version>
             <optional>true</optional>
         </dependency>
 
