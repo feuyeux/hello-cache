@@ -30,7 +30,7 @@
         <ohc.version>0.7.4</ohc.version>
         <!-- local disk -->
         <!-- https://mvnrepository.com/artifact/org.lmdbjava/lmdbjava -->
-        <lmdb.version>0.9.0</lmdb.version>
+        <lmdb.version>0.9.2</lmdb.version>
         <!-- https://mvnrepository.com/artifact/org.agrona/agrona -->
         <agrona.version>2.3.1</agrona.version>
         <!-- https://mvnrepository.com/artifact/net.openhft/chronicle-map -->
