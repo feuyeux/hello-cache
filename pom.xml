@@ -39,7 +39,7 @@
         <rocksdb.version>10.4.2</rocksdb.version>
         <!--  remote -->
         <!-- https://mvnrepository.com/artifact/org.redisson/redisson -->
-        <redisson.version>3.52.0</redisson.version>
+        <redisson.version>4.0.0</redisson.version>
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
         <jedis.version>7.2.0</jedis.version>
         <!-- https://mvnrepository.com/artifact/io.lettuce/lettuce-core -->
