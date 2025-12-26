@@ -32,7 +32,7 @@
         <!-- https://mvnrepository.com/artifact/org.lmdbjava/lmdbjava -->
         <lmdb.version>0.9.0</lmdb.version>
         <!-- https://mvnrepository.com/artifact/org.agrona/agrona -->
-        <agrona.version>2.3.2</agrona.version>
+        <agrona.version>2.4.0</agrona.version>
         <!-- https://mvnrepository.com/artifact/net.openhft/chronicle-map -->
         <chronicle-map.version>3.27ea2</chronicle-map.version>
         <!-- https://mvnrepository.com/artifact/org.rocksdb/rocksdbjni -->
